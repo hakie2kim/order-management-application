@@ -118,7 +118,7 @@ class OrdermanagementApplicationTests {
 				.andExpect(status().isNotFound())
 				.andExpect(content().json("""
 						{
-							"message": "Product를 찾지 못했습니다."
+							"message": "상품을 찾지 못했습니다."
 						}
 						"""));
 	}
