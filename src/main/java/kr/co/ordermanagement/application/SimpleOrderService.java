@@ -1,10 +1,12 @@
 package kr.co.ordermanagement.application;
 
+import kr.co.ordermanagement.domain.State;
 import kr.co.ordermanagement.domain.order.Order;
 import kr.co.ordermanagement.domain.order.OrderRepository;
 import kr.co.ordermanagement.domain.order.OrderedProduct;
 import kr.co.ordermanagement.domain.product.Product;
 import kr.co.ordermanagement.domain.product.ProductRepository;
+import kr.co.ordermanagement.presentation.dto.ChangeStateRequestDto;
 import kr.co.ordermanagement.presentation.dto.OrderResponseDto;
 import kr.co.ordermanagement.presentation.dto.OrderProductRequestDto;
 import lombok.RequiredArgsConstructor;
@@ -46,6 +48,15 @@ public class SimpleOrderService {
                             orderProductRequestDto.getAmount()
                     );
                 }).toList();
+    }
+
+    public OrderResponseDto changeState(Long orderId, ChangeStateRequestDto changeStateRequestDto) {
+        Order order = orderRepository.findById(orderId);
+
+        State state = changeStateRequestDto.getState();
+        order.forceChangeState(state);
+
+        return OrderResponseDto.toDto(order);
     }
 
 }

@@ -4,4 +4,5 @@ public interface OrderRepository {
 
     Order add(Order order);
 
+    Order findById(Long orderId);
 }

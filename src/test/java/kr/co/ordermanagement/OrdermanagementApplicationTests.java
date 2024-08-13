@@ -194,7 +194,7 @@ class OrdermanagementApplicationTests {
 				.andExpect(status().isNotFound())
 				.andExpect(content().json("""
 						{
-						    "message": "Order를 찾지 못했습니다."
+						    "message": "주문을 찾지 못했습니다."
 						}
 						"""));
 	}
