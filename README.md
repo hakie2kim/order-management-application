@@ -1,4 +1,5 @@
 # order-management-application
+
 주문 관리 API
 
 ## 요구사항
@@ -21,7 +22,12 @@
 
 4. 상품 주문과 관련된 요구사항은 아래 API 명세를 참고하세요.
 
+## Schema
+
+![image](https://github.com/user-attachments/assets/fdc2e09f-38ba-4745-b27e-aa47ec04281f)
+
 ## API 명세
+
 ### 1. 상품 주문 API
 - [x] 클라이언트에게 주문하려는 상품번호와 주문수량을 요청 바디에 받아서 주문정보를 생성합니다. 생성된 주문정보는 응답 바디에 담겨 클라이언트에게 제공됩니다.
 - [x] 주문수량만큼 상품의 재고수량이 줄어들어야 합니다.
@@ -124,6 +130,10 @@
 }
 ```
 
+#### Swagger UI
+
+![image](https://github.com/user-attachments/assets/6e9795a9-0ab1-4020-ba7a-276ddbbd02c7)
+
 ### 2. 주문상태 강제 변경 API
 - 주문상태 강제 변경 API는 {orderId}에 해당하는 주문의 상태를 강제로 변경합니다. 여기서 변경되는 주문상태는 어떤 상태라도 요청하는 상태로 변경됩니다. 주문상태 강제 변경 API에는 주문상태 변경과 관련된 제약사항이 존재하지 않습니다.
 - 주문상태를 변경할 수 있는 API는 이외에도 5번의 ‘주문 취소 API’가 있습니다. 주문상태 변경과 관련해서는 제약사항이 있으므로 해당 API를 참고하세요.
@@ -170,6 +180,10 @@
 }
 ```
 
+#### Swagger UI
+
+![image](https://github.com/user-attachments/assets/d1194f08-050e-44a2-be39-a6e4b87c9f4b)
+
 ### 3. 주문번호로 조회 API
 - 주문번호로 주문을 조회할 수 있는 API입니다.
 
@@ -209,6 +223,10 @@
     "message": "주문을 찾지 못했습니다."
 }
 ```
+
+#### Swagger UI
+
+![image](https://github.com/user-attachments/assets/50505fe4-3dcb-4c56-a56c-2f7b6283f225)
 
 ### 4. 주문상태로 조회 API
 - 특정 주문상태를 가지는 주문을 전부 조회할 수 있는 API입니다.
@@ -250,6 +268,10 @@
 ```json
 []
 ```
+
+#### Swagger UI
+
+![image](https://github.com/user-attachments/assets/4c17f8fd-f6ac-4c16-9837-e73fd34838a9)
 
 ### 5. 주문 취소 API
 - 주문상태를 변경할 수 있는 API입니다.
@@ -293,6 +315,43 @@
 }
 ```
 
-### Swagger UI
+#### Swagger UI
 
-![swagger-ui](https://github.com/user-attachments/assets/a512ce2a-081d-4cb4-99ee-691f45d37ead)
+![image](https://github.com/user-attachments/assets/f98c6909-e814-4b37-ac73-341b7a017236)
+
+### 6. 상품 조회 API
+- 모든 상품을 조회할 수 있는 API입니다.
+
+요청 메서드 : GET   
+요청 경로 : /products
+
+#### 조회 성공(/products)   
+요청 바디 없음   
+
+응답 바디
+```json
+[
+    {
+        "id": 1,
+        "name": "상품1",
+        "price": 10000,
+        "amount": 100
+    },
+    {
+        "id": 2,
+        "name": "상품2",
+        "price": 25000,
+        "amount": 300
+    },
+    {
+        "id": 3,
+        "name": "상품3",
+        "price": 30000,
+        "amount": 500
+    }
+]
+```
+
+#### Swagger UI
+
+![image](https://github.com/user-attachments/assets/5e902086-865c-47c7-b9a0-b5ce0e6cc284)
