@@ -14,6 +14,8 @@ public class ListProductRepository implements ProductRepository {
 
     private List<Product> products = new CopyOnWriteArrayList<>();
 
+
+    // ListProductRepository 빈이 생성된 후 실행
     @PostConstruct
     void initProducts() {
         Product product1 = new Product(1L, "상품1", 10000, 100);
@@ -30,7 +32,7 @@ public class ListProductRepository implements ProductRepository {
         return products.stream()
                 .filter(product -> product.sameId(id))
                 .findFirst()
-                .orElseThrow(() -> new EntityNotFoundException("Product를 찾지 못했습니다."));
+                .orElseThrow(() -> new EntityNotFoundException("상품을 찾지 못했습니다."));
     }
 
     @Override
