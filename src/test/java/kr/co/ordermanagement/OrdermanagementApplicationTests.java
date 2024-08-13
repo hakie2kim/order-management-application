@@ -200,7 +200,7 @@ class OrdermanagementApplicationTests {
 	}
 
 	@Test
-	@DisplayName("3-1. 주문번호 조회 - 성공")
+	@DisplayName("3-1. 주문번호로 조회 - 성공")
 	void test3_1() throws Exception {
 		mockMvc.perform(
 						MockMvcRequestBuilders.get("/orders/1")
@@ -230,7 +230,7 @@ class OrdermanagementApplicationTests {
 	}
 
 	@Test
-	@DisplayName("3-2. 주문번호 조회 - 실패 (Order 찾지 못함)")
+	@DisplayName("3-2. 주문번호로 조회 - 실패 (Order 찾지 못함)")
 	void test3_2() throws Exception {
 		mockMvc.perform(
 						MockMvcRequestBuilders.get("/orders/99999")

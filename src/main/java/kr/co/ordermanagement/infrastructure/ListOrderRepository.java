@@ -1,5 +1,6 @@
 package kr.co.ordermanagement.infrastructure;
 
+import kr.co.ordermanagement.domain.State;
 import kr.co.ordermanagement.domain.exception.EntityNotFoundException;
 import kr.co.ordermanagement.domain.order.Order;
 import kr.co.ordermanagement.domain.order.OrderRepository;
@@ -26,12 +27,19 @@ public class ListOrderRepository implements OrderRepository {
 
     @Override
     public Order findById(Long id) {
-        log.info("{}", id);
         return orders
                 .stream()
                 .filter(order -> order.isSameId(id))
                 .findFirst()
                 .orElseThrow(() -> new EntityNotFoundException("주문을 찾지 못했습니다."));
+    }
+
+    @Override
+    public List<Order> findByState(State state) {
+        return orders
+                .stream()
+                .filter(order -> order.isSameState(state))
+                .toList();
     }
 
 }
