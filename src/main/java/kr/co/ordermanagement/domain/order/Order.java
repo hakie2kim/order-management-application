@@ -36,6 +36,10 @@ public class Order {
         return Objects.equals(this.id, id);
     }
 
+    public Boolean isSameState(State state) {
+        return Objects.equals(this.state, state);
+    }
+
     public void forceChangeState(State state) {
         this.state = state;
     }
