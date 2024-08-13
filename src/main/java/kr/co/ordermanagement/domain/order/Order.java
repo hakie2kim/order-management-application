@@ -4,9 +4,12 @@ import kr.co.ordermanagement.domain.State;
 import kr.co.ordermanagement.domain.product.Product;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
+import java.util.Objects;
 
+@Slf4j
 @AllArgsConstructor
 @Getter
 public class Order {
@@ -27,6 +30,14 @@ public class Order {
                 .mapToInt(orderedProduct -> orderedProduct.getPrice() * orderedProduct.getAmount())
                 .sum();
         this.state = State.CREATED;
+    }
+
+    public Boolean isSameId(Long id) {
+        return Objects.equals(this.id, id);
+    }
+
+    public void forceChangeState(State state) {
+        this.state = state;
     }
 
 }
