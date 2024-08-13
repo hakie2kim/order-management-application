@@ -72,4 +72,10 @@ public class SimpleOrderService {
                 .toList();
     }
 
+    public OrderResponseDto cancelById(Long orderId) {
+        Order order = orderRepository.findById(orderId);
+        order.cancel();
+        return OrderResponseDto.toDto(order);
+    }
+
 }

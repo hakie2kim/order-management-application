@@ -42,7 +42,13 @@ public class OrderRestController {
     // 주문상태로 조회 API
     @GetMapping("/orders")
     public ResponseEntity<List<OrderResponseDto>> getOrderByState(@RequestParam State state) {
-        List<OrderResponseDto> orderResponseDto = simpleOrderService.getOrderByState(state);
+        List<OrderResponseDto> orderResponseDtos = simpleOrderService.getOrderByState(state);
+        return new ResponseEntity<>(orderResponseDtos, HttpStatus.OK);
+    }
+
+    @PatchMapping("/orders/{orderId}/cancel")
+    public ResponseEntity<OrderResponseDto> cancelOrderById(@PathVariable Long orderId) {
+        OrderResponseDto orderResponseDto = simpleOrderService.cancelById(orderId);
         return new ResponseEntity<>(orderResponseDto, HttpStatus.OK);
     }
 
