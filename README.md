@@ -292,3 +292,7 @@
     "message": "이미 취소되었거나 취소할 수 없는 주문상태입니다."
 }
 ```
+
+### Swagger UI
+
+![swagger-ui](https://github.com/user-attachments/assets/a512ce2a-081d-4cb4-99ee-691f45d37ead)
