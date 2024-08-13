@@ -59,4 +59,8 @@ public class SimpleOrderService {
         return OrderResponseDto.toDto(order);
     }
 
+    public OrderResponseDto getOrderById(Long orderId) {
+        Order order = orderRepository.findById(orderId);
+        return OrderResponseDto.toDto(order);
+    }
 }

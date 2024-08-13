@@ -31,4 +31,10 @@ public class OrderRestController {
         return new ResponseEntity<>(orderResponseDto, HttpStatus.OK);
     }
 
+    // 주문번호 조회 API
+    @GetMapping("/orders/{orderId}")
+    public ResponseEntity<OrderResponseDto> getOrderById(@PathVariable Long orderId) {
+        OrderResponseDto orderResponseDto = simpleOrderService.getOrderById(orderId);
+        return new ResponseEntity<>(orderResponseDto, HttpStatus.OK);
+    }
 }
